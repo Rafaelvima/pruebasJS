@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="w3.css">
+    <script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+</script>
+</head>
+
+<body onload="plusDivs(1)">
+
+    <div class="w3-container">
+        <div class="w3-row ">
+            <logo class=" w3-center w3-col   w3-third w3-container ">
+                <img src="img/descargalo.png" class="img-fluid" alt="logo">
+            </logo>
+
+            <titulo class="w3-center w3-col w3-third w3-container">
+                <h2>JUMBOTRON</h2>
+            </titulo>
+            <login class="w3-third w3-col  w3-container">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-sm form-lg" id="nombre" placeholder="nombre">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="passwd" placeholder="contraseña">
+                    </div>
+                </form>
+                <button Name="Enviar" value=""> Log in</button>
+            </login>
+            <div class="w3-bar  w3-light-grey w3-card">
+                <a href="#" class="w3-bar-item w3-button">Link 1</a>
+                <a href="#" class="w3-bar-item w3-button">Link 2</a>
+                <div class="w3-dropdown-hover">
+                    <button class="w3-button">Submenu
+      <i class="fa fa-caret-down"></i>
+    </button>
+                    <div class="w3-dropdown-content w3-bar-block">
+                        <a href="#" class="w3-bar-item w3-button">SubLink</a>
+                        <a href="#" class="w3-bar-item w3-button">SubLink</a>
+                    </div>
+                </div>
+                <a href="#" class="w3-bar-item w3-button">Link 3</a>
+            </div>
+            <aside class="w3-col s12 m6 l2">
+                <div class="w3-content w3-display-container">
+                    <img class="mySlides" src="img/descarga.jpg" style="width:100%">
+                    <img class="mySlides" src="img/descarga2.jpg" style="width:100%">
+                    <img class="mySlides" src="img/descarga3.jpg" style="width:100%">
+
+                    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+                </div>
+
+                <div class="w3-center">
+                    Holasda awdawda wawd awd a wdaw dawd awd awdawdawdaw da da da ad wad awd awd awd ad ad awd aahjid huawd huawdhu awdawd hioaw hhiwd hioawd hioawd hiawd hio hi</div>
+            </aside>
+            <articulo class=" w3-col m6 s12 l7">
+                <table class="w3-table w3-col  w3-striped w3-bordered w3-centered w3-hoverable">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th colspan="5">DATOS SOBRE ACCIDENTES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="w3-blue"> </td>
+                            <td class="w3-blue">2014</td>
+                            <td class="w3-blue">2015</td>
+                            <td class="w3-blue">2016</td>
+                            <td class="w3-green"><strong>Total</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="w3-blue">Madrid</td>
+                            <td>Doe</td>
+                            <td>Doe</td>
+                            <td>Doe</td>
+                            <td class="w3-green">drgdgd</td>
+
+                        </tr>
+                        <tr>
+                            <td class="w3-blue">Barce</td>
+                            <td>Mary</td>
+                            <td class="w3-yellow">Moe</td>
+                            <td>Moe</td>
+                            <td class="w3-green">drgd</td>
+                        </tr>
+                        <tr>
+                            <td class="w3-blue">Cuenca</td>
+                            <td>July</td>
+                            <td>Dooley</td>
+                            <td class="w3-red">Dooley</td>
+                            <td class="w3-green">jawdm</td>
+                        </tr>
+                        <tr class="w3-green">
+                            <td><strong>Total</strong></td>
+                            <td>July</td>
+                            <td>Dooley</td>
+                            <td>Dooley</td>
+                            <td class="w3-green w3-dark"><strong>SUPER</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </articulo>
+            <noticias class=" w3-center w3-col  m7 s12 l3 ">
+                <div><img src="img/paris.jpg" class="w3-round img-fluid " alt="Cinque Terre"></div>
+                <div><img src="img/newyork.jpg" class="w3-circle img-fluid" alt="Cinque Terre"></div>
+                <div><img src="img/sanfran.jpg" class="w3-border img-fluid" alt="Cinque Terre"></div>
+            </noticias>
+            <footer class="w3-center w3-col  s12 m12 l12">
+                <h3>PIE DE PAGINA FABULOSO</h3>
+            </footer>
+        </div>
+    </div>
+
+</body>
+
+</html>

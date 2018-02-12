@@ -1,0 +1,296 @@
+/* aqui va todo el contenido de la distribucion del css de la pagina*/
+* {
+    box-sizing: border-box;
+    
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+html {
+    font-family: "Lucida Sans", sans-serif;
+}
+
+header {
+    background-image:url("imagenes/insti.png");
+    background-repeat:repeat;
+    color: #ffffff;
+    padding: 5px;
+}
+header.form img{
+    position: absolute;
+    float:right;
+   margin-left: 50px;
+    
+}
+body{
+    background-color: #efede1;
+}
+/*esto es de la imagenes que me daba problemas y lo hice a parte*/
+
+#hola{
+    float:left;
+    position: absolute;
+    margin-top: 15px;
+
+}
+#barra{
+    margin:0px !important;
+    padding: 0px !important;
+}
+#buscar{
+    text-decoration: none;
+}
+.form{
+    padding-left: 5px;
+}
+.imagenes{
+    float:right;
+     margin-right: 19px;
+    margin-top: 0px;
+}
+/*fin imagenes*/
+
+navi{
+    margin-top: 15px;
+    background-color:aquamarine;
+    font-weight: bold;
+}
+navi li {
+   list-style:circle;
+    font-size: 16px;
+    padding: 8px;
+    
+}
+
+/* Inicio del codigo comleto de solo el MENU*/
+header {
+	width:100%;
+}
+ 
+header nav {
+	width:92%;
+	max-width:900px;
+	margin:15px auto;
+	background:#024959;
+}
+ 
+.menu_bar {
+	display:none;
+}
+ 
+header nav ul {
+	overflow:hidden;
+	list-style:none;
+}
+ 
+header nav ul li {
+    float:left;
+	
+}
+ 
+header nav ul li a {
+	color:#fff;
+	padding:20px;
+	display:block;
+	text-decoration:none;
+}
+ 
+header nav ul li span {
+	margin-right:10px;
+}
+ 
+header nav ul li a:hover {
+	background:#037E8C;
+}
+header nav ul li:hover .children{
+display: inline-block;
+    float:left;
+    
+}
+header nav ul li .children{
+    display:none;
+    position:absolute;
+    background:#011826;
+    width:90%;
+}
+
+ 
+section {
+	padding:20px;
+}
+ /*esto es lo que hace el menu cuandose convierte en modo movil o tablet*/
+@media screen and (max-width:800px ) {
+	header nav {
+		width:80%;
+		height:100%;
+		left:-100%;
+		margin-left:13px;
+        margin-top: -80px;
+		position: fixed;
+        overflow: hidden;
+	}
+    body{
+        padding-top: 80px;
+    }
+    #cale{
+       padding-left:20%;
+    }
+ 
+	header nav ul li {
+		display:block;
+		float:none;
+		border-bottom:1px solid rgba(255,255,255, .3);
+	}
+     #hola{
+        right:20%;
+        padding-top: 20px;
+    }
+ 
+	.menu_bar {
+		display:block;
+		width:100%;
+		background:#ccc;
+        position:fixed;
+        top:0;
+	}
+ 
+	.menu_bar .bt-menu {
+		display:block;
+		padding:20px;
+		background:#024959;
+		color:#fff;
+		text-decoration:none;
+		font-weight: bold;
+		font-size:25px;
+		box-sizing:border-box;
+	}
+ 
+	.menu_bar span {
+		float:right;
+		font-size:40px;
+	}
+	/*fin modo movil*/
+}
+/* fin menu*/
+
+body h1{
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+aside {
+    background-color: #024959;
+    padding: 15px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 14px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+iframe{
+    padding: 15px;
+    text-align: center;
+    width: auto;
+}
+
+footer {
+    background-color: #024959;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+}
+
+/* Por si es movil: */
+
+[class*="col-"] {
+    width: 100%;
+}
+/* tablets */
+@media only screen and (min-width: 600px) {
+    
+    .col-m-1 {
+        width: 8.33%;
+    }
+    .col-m-2 {
+        width: 16.66%;
+    }
+    .col-m-3 {
+        width: 25%;
+    }
+    .col-m-4 {
+        width: 33.33%;
+    }
+    .col-m-5 {
+        width: 41.66%;
+    }
+    .col-m-6 {
+        width: 50%;
+    }
+    .col-m-7 {
+        width: 58.33%;
+    }
+    .col-m-8 {
+        width: 66.66%;
+    }
+    .col-m-9 {
+        width: 75%;
+    }
+    .col-m-10 {
+        width: 83.33%;
+    }
+    .col-m-11 {
+        width: 91.66%;
+    }
+    .col-m-12 {
+        width: 100%;
+    }
+}
+/*por si es ordenador*/
+@media only screen and (min-width: 768px) {
+    .col-1 {
+        width: 8.33%;
+    }
+    .col-2 {
+        width: 16.66%;
+    }
+    .col-3 {
+        width: 25%;
+    }
+    .col-4 {
+        width: 33.33%;
+    }
+    .col-5 {
+        width: 41.66%;
+    }
+    .col-6 {
+        width: 50%;
+    }
+    .col-7 {
+        width: 58.33%;
+    }
+    .col-8 {
+        width: 66.66%;
+    }
+    .col-9 {
+        width: 75%;
+    }
+    .col-10 {
+        width: 83.33%;
+    }
+    .col-11 {
+        width: 91.66%;
+    }
+    .col-12 {
+        width: 100%;
+    }
+}
+    
