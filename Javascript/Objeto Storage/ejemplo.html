@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8" />
+        <title>Administración del Storage</title>
+        <script src='Mantenimiento.js'></script>
+      </head>
+      <body>
+        <label for='nombre'>Nombre: </label>
+        <input type='text' id='nombre' />
+        <br /><br />
+        <label for='valor'>Valor.....: </label>
+        <input type='text' id='valor' />
+        <br /><br /><br />
+        <button id='anadir'>Añadir</button>
+        <button id='borrar'>Borrar variable</button>
+        <button id='consultar'>Consultar</button>
+        <button id='modificar'>Modificar</button>
+        <br /><br />
+        <button id='listado'>Listado</button>
+        <button id='borrar_listado'>Borrar listado</button>
+        <button id='borrar_almacen'>Borrar almacén</button>
+        <br />
+        <p id='parrafo'></p>
+      </body>
+    </html>
+    <script>
+    function f_anadir () {
+        var nombre=document.getElementById('nombre').value;
+        var valor=document.getElementById('valor').value;
+        if (nombre === '' || valor === '') {
+            alert('Debe introducir algo en nombre y en valor');
+        } else {
+            window.localStorage.setItem(nombre,valor);
+        }
+    }
+    function f_borrar () {
+        window.localStorage.removeItem(document.getElementById('nombre').value);
+    }
+    function f_consultar () {
+        document.getElementById('valor').value = window.localStorage.getItem(document.getElementById('nombre').value);
+    }
+    function f_modificar () {
+        var nombre=document.getElementById('nombre').value;
+        var valor=document.getElementById('valor').value;
+        if (nombre === '' || valor === '') {
+            alert('Debe introducir algo en nombre y en valor');
+    // Se podría controlar que exista la variable
+        } else {
+            window.localStorage.setItem(nombre,valor);
+        }
+    }
+    function f_listado () {
+        for (var i=0; i<window.localStorage.length; i++){
+            insertar(window.localStorage.key(i),window.localStorage[window.localStorage.key(i)]);
+        }
+    }
+    function insertar(nombre,valor){
+        var mensaje = document.getElementById('parrafo').innerHTML;
+        mensaje += '<br><strong>Nombre:</strong> '+ nombre;
+        mensaje += '<strong> Valor actual:</strong> '+ valor;
+        document.getElementById('parrafo').innerHTML = mensaje;
+    }
+    function f_borrar_listado () {
+        document.getElementById('parrafo').innerHTML = '';
+    }
+    function f_borrar_almacen () {
+        window.localStorage.clear();
+    }
+    function cargarEventos(evento) {
+        document.getElementById('anadir').addEventListener('click', f_anadir, false);
+        document.getElementById('borrar').addEventListener('click', f_borrar, false);
+        document.getElementById('consultar').addEventListener('click', f_consultar, false);
+        document.getElementById('modificar').addEventListener('click', f_modificar, false);
+        document.getElementById('listado').addEventListener('click', f_listado, false);
+        document.getElementById('borrar_listado').addEventListener('click', f_borrar_listado, false);
+        document.getElementById('borrar_almacen').addEventListener('click', f_borrar_almacen, false);
+    }
+    document.addEventListener("readystatechange", cargarEventos, false);
+        </script>

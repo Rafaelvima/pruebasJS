@@ -1,0 +1,25 @@
+<html>
+<!--poner fecha de mañana utilizabdp miliseg-->
+
+<head>
+    <title>lo que me de la gana</title>
+    <script>
+        var dia_semana = new Array("Dominog", "Lunes", "Martes", "Miercoles", "Jueves", "viernes", "Sabado");
+        var meses = new Array("Enero", "Febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre");
+
+    </script>
+</head>
+
+<body>
+
+    <script>
+        var fecha = new Date();
+        fecha.setTime(fecha.getTime()+ (24*3600000));
+        document.write(fecha);
+      
+
+    </script>
+
+</body>
+
+</html>

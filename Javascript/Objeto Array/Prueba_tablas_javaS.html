@@ -1,0 +1,39 @@
+<html>
+
+<head></head>
+<!--
+*******************************
+Escribe introduce numero
+         Lee numero
+        for(int a=0;0<11;a++){
+         esbribe numero X a= numero*a;
+        }
+************************************
+-->
+
+<body>
+    <!-- ************CON FOR************* -->
+    <script>
+        debugger;
+        /*Se para la funcion aqui, en chrome apretas F12 y te abre la desarroladora
+        luego vas a consola y ahi refrescas la pagina y le vas dando al F8 para ir avanzando paso a paso*/
+        var numero = parseInt(prompt("Que numero quieres la tabla", ""));
+        for (var i = 0; i < 11; i++) {
+            debugger;
+            document.write(numero + " X " + i + " = " + numero * i + "<br>");
+        }
+        document.write("<br>");
+        debugger;
+        /*<!-- ************CON while************* -->*/
+         var numero = parseInt(prompt("Que numero quieres la tabla", ""));
+        var c = 0
+        while (c < 11) {
+            document.write(numero + " X " + c + " = " + numero * c + "<br>");
+            c++;
+        }
+        
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+<html>
+<head>
+</head>
+<body>
+<p>texto 0 </p>
+<script>
+alert("espera");
+ var nuevoP = document.createElement("p");
+ var nuevoT = document.createTextNode("hola feo");
+ nuevoP.appendChild(nuevoT);
+ var lugar = document.getElementsByTagName("p")[0];
+ document.body.insertBefore(nuevoP,lugar);
+</script>
+</body>
+</html>

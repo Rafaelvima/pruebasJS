@@ -1,0 +1,22 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script>
+        var nombre = prompt("nombre","");
+        var nombre = prompt("nombre","");
+        var nombre = prompt("nombre","");
+        var nombre = prompt("nombre","");
+        var nombre = prompt("nombre","");
+        var nombre = prompt("nombre","");
+        var nombre = prompt("nombre","");
+        function asignarCookie(nombre, valor, caducidad, ruta, dominio, seguridad) {
+            document.cookie = nombre + "=" + escape(valor) + ((caducidad == undefined) ? "" : ("; expires=" + caducidad.toGMTString())) + ((ruta == undefined) ? "" : ("; path=" + ruta)) + ((dominio == undefined) ? "" : ("; domain =" + dominio)) + ((seguridad == true) ? "; secure" : "");
+        }
+
+    </script>
+</body>
+
+</html>

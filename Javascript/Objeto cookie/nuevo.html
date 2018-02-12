@@ -1,0 +1,78 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script>
+        var cadena = "";
+        var cont = true;
+        var cadenaNom = "";
+        var cadenaVal = "";
+        var igual = false;
+        var caracter;
+        var contVa = 1;
+        do {
+            var nombre = prompt("introduce nombre", "");
+            var valor = prompt("introduce valor", "");
+            cadena += nombre + "=" + valor + "; ";
+            cont = confirm("quieres continuar?");
+
+        } while (cont);
+        document.write("cadena original " + cadena + "<br>");
+
+        //mi forma de hacerlo (dificil y larga)
+
+        for (i = 0; i < cadena.length; i++) {
+            caracter = cadena.charAt(i);
+            if (caracter == "=") {
+                igual = true;
+                caracter = cadena.charAt(i + 1);
+                i++;
+            }
+            if (igual == false) {
+                cadenaNom += caracter;
+
+            } else {
+                cadenaVal += caracter;
+                if (caracter == ";") {
+                    document.write("variable" + contVa + " = " + cadenaNom + " ");
+                    document.write("valor" + contVa + " = " + cadenaVal);
+                    document.write("<br>");
+                    cadenaNom = "";
+                    cadenaVal = "";
+                    igual = false;
+                    contVa++;
+
+                }
+            }
+        }
+
+        //forma del profe de hacerlo con split
+        /*
+                // Crear la expresión regular
+                var expresion = new RegExp("[;]+", "g");
+                var expresion2 = new RegExp("[=]+", "g");
+                // Crear tabla con las cadenas incluidas entre los separadores
+                var tabla = cadena.split(expresion);
+                var tabla2;
+                // Mostrar los elementos de la tabla a razón de uno por cada línea
+
+                for (var i = 0; i < tabla.length; i++) {
+                    tabla2 = tabla[i].split(expresion2);
+                    for (var j = 0; j < tabla2.length;j++) {
+                        document.write(tabla2[j] + "---");
+                    }
+                    document.write("<br>");
+                }
+                document.cookie(cadena);
+                document.write("FIN");
+        */
+
+        //pide nombre de valuiabre y valor de forma repetiad hasta que no queramos uintroducir mas datos y debera formarse una cadena de kla forma, del formato v1=vallor;v2=valoor2; que se introcuriea en la variable cadena y se monstrara con un document write. 
+        //Utilizar una expresion regular o varias para definir el separador de subcadenas con el metodo split.
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<html>
+<head>
+    <script src="../jquery-3.2.1.js" type="text/javascript">   </script>
+    <script>
+    $(document).ready(function(){
+        //alert($("div").css("background"));
+        alert("holi");
+        
+        $("#dos").mouseover(function(){
+            $("#uno").css("visibility", "hidden");
+            $("div").removeClass("red");
+            $("#uno").addClass("blue");
+            $("div").addClass("yellow");
+            //$("#uno").attr("visibility, hidden");
+           // $("#uno").css("width, 800px");
+            //$("#uno").attr("display, none");
+           // $("div").css("background-color, #034");
+            
+            
+        });
+        $("#dos").mouseout(function(){
+            $("div").removeClass("yellow");
+            $("div").addClass("red");
+             $("#uno").css("visibility", "visible");
+            $("#uno").css("width, 400px");
+        })
+        $(document).click(function(){
+          alert($("#uno").css("background-color","green"));  
+          alert($("div").css("display"));  
+          alert($("div").css("border"));  
+           
+        });
+        
+    });
+    </script>
+    <style>
+       #uno {
+            height: 500;
+            width:200;
+            border:solid;
+            visibility: visible;
+           
+            
+        }
+        #dos{
+            height: 500;
+            width:200;
+            border:solid;
+            visibility: visible;
+        }
+        .yellow{
+            background-color: yellow ;
+        }
+        .blue{
+            background-color:#034;
+        }
+        .red{
+            background-color:red ;
+        }
+    </style>
+</head>
+<body>
+    <div id="uno" class="mios" >amarillo</div>
+    <div id="dos" class="mios">amarillo</div>
+</body>
+</html>

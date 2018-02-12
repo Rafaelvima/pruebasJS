@@ -1,0 +1,133 @@
+<html>
+<!--Nomvre
+Dni
+enbviar: se chekea dni y en el caso de que no pase la validacion que no se envie y mensaje error.
+guardar datos cookies
+los valores iniciales los guardados o si no hay valoeresd  nnnnnnnX
+introduce un nombre
+nombre !  -->
+
+<head>
+    <title>la gana</title>
+    <script>
+        function asignarcookie(nombre, valor) {
+            var caducidad1 = new Date();
+            caducidad1.setTime(caducidad1.getTime() + (400 * 1000))
+            document.cookie = nombre + "=" + valor + ((caducidad1 == undefined) ? "" : ("; expires=" + caducidad1.toGMTString()));
+
+        }
+
+        function leercookie() {
+            if (document.cookie.length == 0) {
+                document.forms[0].nombre.value = "Introduce nombre";
+                document.forms[0].dni.value = "nnnnnnX";
+            
+            } else {
+                var sep1 = new RegExp("; ", "g");
+                var sep2 = new RegExp("=", "g");
+                var listacookie = document.cookie.split(sep1);
+                for (var i = 0; i < listacookie.length; i++) {
+                    var cookie = listacookie[i].split(sep2);
+                    if (cookie[0] == "nombre") {
+                        document.forms[0].nombre.value = cookie[1];
+                    }
+                    else if (cookie[0] == "dni") {
+                        document.forms[0].dni.value = cookie[1];
+                    }
+
+                }       
+
+            }
+            return null;
+        }
+
+        function enviar() {
+            asignarcookie("nombre", document.forms[0].nombre.value, );
+            asignarcookie("dni", document.forms[0].dni.value, );
+            comprobar();
+        }
+
+        function comprobar() {
+            var respuesta=true;
+            var valor1=document.forms[0].dni.value;
+            var valor2=document.forms[0].nombre.value;
+            if(!(/^\d{8}[A-Z]$)/.test(valor1))){
+                respuesta=false;
+            }
+        }
+
+    </script>
+</head>
+
+<body onload="leercookie()">
+    <script>debugger;
+    </script>
+    <table>
+        <form name=formu1 target="">
+            <tr>
+
+                <td>NOMBRE</td>
+                <td><input type="text" name="nombre" ></td>
+            </tr>
+            <tr>
+                <td>DNI</td>
+                <td><input type="text" name="dni" ></td>
+            </tr>
+            <tr>
+                <td>Sexo</td>
+                <td><input type=radio name=hombre ><label for=hombre>Menor de 21 años</label></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type=radio name=mujer ><label for=mujer>Menor de 21 años</label></td>
+            </tr>
+            <tr>
+                <td>Edad</td>
+                <td><input type=radio name=menor21 ><label for=menor21>Menor de 21 años</label></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type=radio name=entre2140><label for=entre2140>Entre 21 y 40 años</label></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type=radio name=entre4160><label for=entre4160>Entre 41 y 60 años</label></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type=radio name=mayor60 ><label for=mayor60>Mayor de 60 años</label></td>
+            </tr>
+            <tr>
+                <td>Aficiones:</td>
+                <td><input type=radio name=deportes ><label for=deportes>Deportes</label></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type=radio name=cine ><label for=cine>Cine</label></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type=radio name=lectura ><label for=lectura>Lectura</label></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td> <input type="submit" name="BotonE" value="Enviar" onclick="enviar()"></td>
+                <td></td>
+            </tr>
+           
+        </form>
+    </table>
+
+
+    <script>
+// baloncesto ciclismo padel tenis
+        //aventura romantico terrir
+        //novelas ciencia poesia
+    </script>
+
+</body>
+
+</html>

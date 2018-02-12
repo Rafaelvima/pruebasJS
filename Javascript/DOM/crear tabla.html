@@ -1,0 +1,32 @@
+<html>
+<head>
+<script>
+function funcion() {
+alert("espera");
+var nuevoT = document.createElement("table");
+ var lugar = document.getElementsByTagName("table")[1];
+var columnas = 3;
+var filas=2
+for(var i=0; i<filas;i++){
+var nuevoR = document.createElement("tr");
+nuevoT.appendChild(nuevoR);
+ for(var j=0; j<columnas; j++){
+var nuevoD = document.createElement("td");
+ var textito = document.createTextNode("2");
+nuevoR.appendChild(nuevoD);
+nuevoD.appendChild(textito);
+}
+document.body.insertBefore(nuevoT,lugar);
+}
+
+}
+</script>
+</head>
+<body onload="funcion()">
+<table border=solid>
+<tr><td>hola</td></tr>
+ </table>
+<table border=solid>
+ </table>
+</body>
+</html>

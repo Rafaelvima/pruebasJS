@@ -1,0 +1,36 @@
+<html>
+<!--poner fecha de mañana utilizabdp miliseg-->
+
+<head>
+    <title></title>
+    <script>
+
+
+    </script>
+</head>
+
+<body>
+
+    <script>
+      
+        var pX=0;
+var pY=0;
+        function obtenreposraton(e){
+
+            if (document.all){
+                pX=event.offsetX;
+                pY=event.offsetY;
+            }
+            else{
+                pX=e.pageX;
+                pY=e.pageY;
+            }
+document.title= "x:"+pX+" y:"+pY;
+            window.status =  "x:"+pX+" y:"+pY;
+        }
+          document.onmousemove=obtenreposraton;
+    </script>
+
+</body>
+
+</html>

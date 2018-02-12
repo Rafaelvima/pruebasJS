@@ -1,0 +1,23 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script>
+        var cadena = "";
+        do {
+            var nombre = prompt("introduce nombre", "");
+            var valor = prompt("introduce valor", "");
+            cadena += nombre + "=" + valor + "; ";
+            cont = confirm("quieres continuar?");
+
+        } while (cont);
+        document.write("cadena original " + cadena + "<br>");
+        document.cookie = cadena;
+        document.write(document.cookie);
+
+    </script>
+</body>
+
+</html>

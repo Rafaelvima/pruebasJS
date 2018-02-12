@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <script >
+    
+    var tabla = new Array("R","A","F","A");
+
+    for(var v in tabla){
+        document.write(v+"-"+tabla[v]+"<br/>");
+    }
+        tabla.forEach(function(valor,indice){
+            document.write(indice +"-"+valor+"<br/>");
+        })
+        tabla.forEach(function(valor,indice,t){
+                       t[indice]+=" gay";
+
+            document.write(indice +"-"+ t[indice]+"<br/>");
+        })
+    </script> 
+    
+</head>
+
+<body>
+
+</body>
+
+</html>

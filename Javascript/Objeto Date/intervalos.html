@@ -1,0 +1,26 @@
+<html>
+<!--poner fecha de mañana utilizabdp miliseg-->
+
+<head>
+    <title>lo que me de la gana</title>
+    <script>
+        var tiempo = 0;
+        function crono(){
+          var FechaAct = new Date();
+                     tiempo++;
+                     document.title = tiempo;  
+            clearInterval(miinter);
+        }
+    </script>
+</head>
+
+<body>
+
+    <script>      
+        var miinter = setInterval("crono()",100);
+        
+    </script>
+
+</body>
+
+</html>

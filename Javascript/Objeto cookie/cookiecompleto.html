@@ -1,0 +1,27 @@
+<html>
+<!--poner fecha de mañana utilizabdp miliseg-->
+
+<head>
+    <title>hija</title>
+    <script>
+
+
+    </script>
+</head>
+
+<body>
+    <script>
+    function asignarcookie(nombre,valor,caducidad){
+        document.cookie=nombre+"="+valor+((caducidad==undefined) ? "" : ("; expires="+caducidad.toGMTString()));
+        document.write(document.cookie);
+    }
+        var nombre1=prompt("nombre","");
+        var valor1=prompt("calor","");
+        var tiempo=parseInt(prompt("cuantos segundos quioeres que dure",0));
+        var caducidad1=new Date();
+        caducidad1.setTime(caducidad1.getTime()+(tiempo*1000));
+        asignarcookie(nombre1,valor1,caducidad1);
+    </script>
+
+</body>
+</html>

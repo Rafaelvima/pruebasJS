@@ -1,0 +1,57 @@
+<html>
+<!--poner fecha de mañana utilizabdp miliseg-->
+
+<head>
+    <title>la gana</title>
+    <script>
+
+
+    </script>
+</head>
+
+<body>
+    <button onclick="reanudar();">Iniciar</button>
+    <button onclick="parar();">Parar</button>
+    <script>
+        var miinter;
+
+        function reanudar() {
+            miinter = setInterval("crono()", 1000);
+        }
+
+        function parar() {
+            clearInterval(miinter);
+        }
+        var tiempo = 0;
+        var min = 0;
+        var hor = 0;
+
+        function crono() {
+            tiempo++;
+            if (tiempo < 10 && min < 10 && hor < 10) {
+                document.title = "0" + hor + ":0" + min + ":" + "0" + tiempo;
+            } else {
+                if (min < 10 && hor < 10) {
+                    document.title = "0" + hor + ":0" + min + ":" + "0" + tiempo;
+                } else {
+                    if (hor < 10) {
+                        document.title = "0" + hor + ":" + min + ":" + tiempo;
+                    }
+                } else {
+                    if (tiempo > 59) {
+                        min++;
+                        tiempo = 0;
+                    }
+                    if (min > 59) {
+                        hor++;
+                        min = 0;
+                    }
+                    document.title = hor + ":" + min + ":" + tiempo;
+                }
+            }
+
+    </script>
+
+</body>
+
+</html>

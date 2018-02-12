@@ -1,0 +1,28 @@
+<html>
+<head>
+    <script>
+//var ales = parseInt((Math.random()*11));
+//var ale = parseInt(Math.random()*301)+100;
+ //   document.write(ale);//
+var max= parseInt(prompt("final",0));
+var min= parseInt(prompt("min",0));
+        var numero=1;
+    var alea = parseInt(Math.random()*((max-min)+1)+min);
+    document.write(alea);
+    function clicka(){
+        alert("dentro");
+        
+        document.getElementById("hola").innerHTML=numero;
+        alert("dfeuera");
+    }
+</script>
+    </head>
+<body>
+<!-- Numerop aleatorio de 0 a 500 y que todos tenga la misma probabilidad -->
+    
+    <button onclick="clicka()">hoal</button>
+    <p id="hola"></p>
+
+     
+    </body>
+</html>

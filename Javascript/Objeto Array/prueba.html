@@ -1,0 +1,45 @@
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+ 
+<body>
+	<h1>Metodo burbuja en JavaScript</h1>
+ 
+	<script>
+	function burbuja(miArray)
+	{
+		for(var i=1;i<miArray.length;i++)
+		{
+			for(var j=0;j<(miArray.length-i);j++)
+			{
+				if(miArray[j]>miArray[j+1])
+				{
+					k=miArray[j+1];
+					miArray[j+1]=miArray[j];
+					miArray[j]=k;
+				}
+			}
+		}
+		return miArray;
+	}
+ 
+	miArray=Array(5,9,4,7,3,8,2,1,6);
+ 
+	document.write("Valores Iniciales<br>");
+	for(var i=0;i<miArray.length;i++)
+	{
+		document.write(miArray[i]+"<br>");
+	}
+ 
+	arrayB=burbuja(miArray);
+ 
+	document.write("Valores ordenados<br>");
+	for(i=0;i<arrayB.length;i++)
+	{
+		document.write(arrayB[i]+"<br>");
+	}
+	</script>
+ 
+</body>
+</html>

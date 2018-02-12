@@ -1,0 +1,62 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <script>
+        var numeros = new Array();
+        numeros[0] = 4;
+        numeros[1] = 7;
+        numeros[2] = 9;
+        numeros[3] = 12;
+        numeros[4] = 2;
+
+        var aux = 0;
+        for (var indice = 0; indice < numeros.length - 1; indice++) {
+            for (var posicion = indice + 1; posicion < numeros.length; posicion++) {
+
+
+                if (numeros[indice] > numeros[posicion]) {
+                    aux = numeros[indice];
+                    numeros[indice] = numeros[posicion];
+                    numeros[posicion] = aux;
+
+                }
+            }
+        }
+        debugger;
+        for (var numero in numeros) {
+            document.write("posicion ", numero, " = ", numeros[numero], "<br>");
+        }
+        //Otro metodo (burbuja)
+        var numeras = new Array();
+        numeras[0] = 5;
+        numeras[1] = 6;
+        numeras[2] = 10;
+        numeras[3] = 13;
+        numeras[4] = 3;
+
+        var cambio=true;
+        
+        while(cambio){
+            cambio=false;
+            for(var contador=0; contador<numeras.length; contador++){
+                var contador2=contador+1;
+                if(numeras[contador]>numeras[contador2]){
+                    debugger;
+                    aux=numeras[contador];
+                    numeras[contador]=numeras[contador2];
+                    numeras[contador2]=aux;
+                    cambio=true;
+                }
+            }
+        }
+        for (var numera in numeras) {
+            document.write("posicion ", numera, " = ", numeras[numera], "<br>");
+        }
+    </script>
+</body>
+
+</html>

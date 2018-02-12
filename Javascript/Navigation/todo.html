@@ -1,0 +1,23 @@
+<html>
+<body>
+    hola
+<script>
+       navigator.geolocation.getCurrentPosition(bien, mal,opcion);
+    function bien(parametros_bien){
+        alert("bien");
+for(var propie in parametros_bien.coords){
+    document.write(propie + parametros_bien.coords[propie]+"<br/>");
+}
+    }
+    function mal (){
+        alert("mal");
+    }
+    function opcion(){
+        
+    }
+for(var element in navigator.geolocation){
+document.write(element+ +"<br>");
+}
+</script>
+</body>
+</html>

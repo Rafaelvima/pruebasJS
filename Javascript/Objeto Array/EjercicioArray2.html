@@ -1,0 +1,49 @@
+<!-- pide mes y multas y las va guardando 
+
+Inicio
+array(12)
+var continuar =true;
+hacer:
+escribir cuantas multas se han producido?
+lee multas
+esribir en que mes?
+lee mes
+quieres poner mas multas?
+lee continuar
+array[mes -1]+=multas;
+mientras continuar=true;
+fin;
+-->
+<html>
+
+<head>
+</head>
+
+<body>
+    <script>
+        //Ejercicio por mi forma
+        var meses = Array(12);
+        for(var j=0;j<meses.length;j++){
+            meses[j]=0;
+        }
+        var continuar = true;
+        do {
+            var mes = parseInt(prompt("en que numero de mes se ha producido la multa", 0));
+            if (mes > 12) {
+                alert("numero de mes no existente");
+            } else {
+                var multas = parseInt(prompt("cuantas multas se han producido ese mes", 0));
+                debugger;
+                meses[mes - 1] += multas;
+            }
+            continuar = confirm("quieres poner mas multas? (si es asi darle a aceptar)");
+        }
+        while (continuar);
+        for(var i=0;i<meses.length;i++){
+            document.write("en el mes ", i+1, " se han producido ", meses[i], "<br>");
+        }
+        
+    </script>
+</body>
+
+</html>

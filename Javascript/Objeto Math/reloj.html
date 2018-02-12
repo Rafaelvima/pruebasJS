@@ -1,0 +1,33 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <!-- Numerop aleatorio de 0 a 500 y que todos tenga la misma probabilidad -->
+    <p id="hola">
+
+    </p>
+    <script>
+        var inter = setInterval("gira()", 100);
+        var grado = 0;
+        var i = 0;
+
+        function gira() {
+
+            var seno = ((Math.sin(grado / 57.3)) * 100).toFixed(2);
+            document.write("seno de" + grado + " es: " + seno + "<br>");
+            var cosen = ((Math.cos(grado / 57.3)) * 100).toFixed(2);
+            document.write("coseno de" + grado + " es: " + cosen + "<br>");
+            grado += 5;
+            if (grado == 500) {
+                clearInterval(inter);
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

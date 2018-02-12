@@ -1,0 +1,32 @@
+<html>
+<!--poner fecha de mañana utilizabdp miliseg-->
+
+<head>
+    <title>lo que me de la gana</title>
+    <script>
+       
+
+    </script>
+</head>
+
+<body>
+
+    <script>
+       function esValido(str1){
+           //var expreg = new RegExp("a", "gi");
+           var expreg = /a/gi;
+           if(expreg.test(str1)){
+               return str1 + "es OK";
+           } else{
+               return str1 + "es KO"
+           }
+       }
+      
+        var miCadena = prompt("introoduce texto","");
+        alert(esValido(miCadena));
+
+    </script>
+
+</body>
+
+</html>

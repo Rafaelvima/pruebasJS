@@ -1,0 +1,48 @@
+<html>
+<!--poner fecha de mañana utilizabdp miliseg-->
+
+<head>
+    <title>la gana</title>
+    <script>
+
+
+    </script>
+</head>
+
+<body>
+    
+    <script>
+        var para = true;
+        var miinter = setInterval("crono();", 500);
+        var ini = 10;
+        var aux = true;
+        var fin = 21;
+
+        function crono() {
+            document.write("hi");
+            while (para) {
+
+                if (ini < 21 && aux == true) {
+                    document.write(ini++);
+                    if (ini == 20) {
+                        document.write(ini);
+                        aux = false;
+                    }
+                }
+                if (ini < 21 && aux == false) {
+                    document.write(ini--);
+                    if (ini == 10) {
+                        document.write(ini);
+                        aux = true;
+                    }
+                }
+
+
+            }
+        }
+
+    </script>
+    <button onClick=crono()>hola</button>
+</body>
+
+</html>

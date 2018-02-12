@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <script>
+        //definir objeto
+        function modulo(nombreM, calificacion) {
+            //definir las propiedades
+            this.nombreM = nombreM;
+            this.calificacion = calificacion;
+            //definir metodos
+            this.aprobadoM = fnAprobadoM;
+        }
+        //desarrollr cada funcion
+        function fnAprobadoM() {
+            with(this) {
+                if (calificacion >= 5) {
+                    document.write("si");
+                    return true;
+                } else {
+                    return false;
+                    document.write("no");
+                }
+            }
+        }
+
+        function alumno(nombreA, edad, modulos) {
+            this.nombreA = nombreA;
+            this.edad = edad;
+            this.modulos =  modulos;
+            this.aprobadoA = fnAprobadoA;
+        }
+
+
+        function fnAprobadoA() {
+            with(this) {
+                for(var i=0; i< modulos.length;i++)
+                if (modulos[i].aprobadoM()) {
+                    document.write("si");
+                    return "Aprobado";
+                } else {
+                    document.write("no");
+                    return "SUspenso";
+                    break;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <script>
+        debugger;
+        var NombreA = prompt("nombre alumno", "");
+        var Edad = prompt("edad alumno", "");
+        var cantidadM = parseInt(prompt("cuantos modulos quieres pesao",0));
+        var modulosA = new Array(cantidadM);
+        for(var i=0;i<cantidadM;i++){
+            var NombreM1 = prompt("nombre modulo", "");
+             var calificacion1 = parseInt(prompt("nota del modulo", 0));
+             var objetoM1 = new modulo(NombreM1, calificacion1);
+            var objetosM = new
+        }
+        
+        var NombreM2 = prompt("nombre modulo2", "");
+       
+        var calificacion2 = parseInt(prompt("nota del segundo modulo", 0));
+       
+        
+        var objetoA1 = new alumno(NombreA, Edad, ObjetosM );
+
+        alert(objetoA1.aprobadoA());
+        for(var propiedades in objetoA1){
+            document.write(propiedades, " = ", objetoA1[propiedades], "<br>")
+        }
+    </script>
+</body>
+
+</html>

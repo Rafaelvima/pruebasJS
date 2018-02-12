@@ -1,0 +1,93 @@
+<html>
+<!--poner fecha de mañana utilizabdp miliseg-->
+
+<head>
+    <title></title>
+    <script>
+
+
+    </script>
+</head>
+
+<body>
+    <button onclick="leercookie()" >leer cookie </button>
+    <button onclick="asignarcookie()" >crear cookie </button>
+    <button onclick="buscarcookie()" >buscar cookie </button>
+    <button onclick="borrarcookie()" >borrar cookie </button>
+    <script>
+        
+        function asignarcookie() {
+            debugger;
+            var nombre1 = prompt("nombre", "");
+        var valor1 = prompt("calor", "");
+        var tiempo = parseInt(prompt("cuantos segundos quioeres que dure", 0));
+        var caducidad1 = new Date();
+        caducidad1.setTime(caducidad1.getTime() + (tiempo * 1000));
+            document.cookie = nombre1 + "=" + valor1 + ((caducidad1 == undefined) ? "" : ("; expires=" + caducidad1.toGMTString()));
+        }
+        function asignarcookie(nombre,valor,caducidad) {
+            debugger;
+            document.cookie = nombre + "=" + valor + ((caducidad == undefined) ? "" : ("; expires=" + caducidad.toGMTString()));
+        }
+
+        function leercookie(nombre) {
+            debugger;
+            //document.write("hla");
+            if (document.cookie.length == 0) {
+               document.write("vacio");
+            }
+            var sep1 = new RegExp("; ", "g");
+            var sep2 = new RegExp("=", "g");
+            var listacookie = document.cookie.split(sep1);
+            for (var i = 0; i < listacookie.length; i++) {
+                var cookie = listacookie[i].split(sep2);
+               document.write(cookie[0]+" = " +cookie[1]+"<br>");
+            }
+            return null;
+        }
+        function buscarcookie(){
+            debugger;
+            var buscar = prompt("nombre a buscar", "");
+             if (document.cookie.length == 0) {
+                return null;
+            }
+            var sep1 = new RegExp("; ", "g");
+            var sep2 = new RegExp("=", "g");
+            var listacookie = document.cookie.split(sep1);
+            for (var i = 0; i < listacookie.length; i++) {
+                var cookie = listacookie[i].split(sep2);
+                if (cookie[0] == buscar) {
+                    return alert("valor encontrado"+cookie[1]);
+                }
+            }
+            return null;
+        }
+        function borrarcookie(){
+            debugger;
+            var borrar = prompt("nombre a borrar", "");
+             if (document.cookie.length == 0) {
+                return null;
+            }
+            var sep1 = new RegExp("; ", "g");
+            var sep2 = new RegExp("=", "g");
+            var listacookie = document.cookie.split(sep1);
+            for (var i = 0; i < listacookie.length; i++) {
+                var cookie = listacookie[i].split(sep2);
+                if (cookie[0] == borrar) {
+                    var pasado = new Date();
+                    pasado.setTime(pasado.getTime()-10);
+                    asignarcookie(cookie[0],cookie[1],pasado);
+                }
+            }
+            return null;
+        }
+        function borrarTodas(){
+            localStorage.clear;
+        }
+        
+        
+    </script>
+
+</body>
+
+</html>

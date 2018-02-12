@@ -1,0 +1,55 @@
+<!-- hacer una pagina web que contenga la definicion de laclase ventana con las propiedades:
+alto, ancho, abierta. Con los metodos mostrar_superficie(), abrir(), cerrar(), mostar_estado(). Y solicite el alto y el ancho, cree un objeto con esos datos e inicialmente cerrada. A continuacion se abre la ventana, muestra la superficie y el estado de la ventana con las palabras abierta o cerrada-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Primer poo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="miestilo.css" />
+    <script>
+        //Definir el objeto
+        function Ventana(Ancho, Alto, Abierta){
+            //definicion de propiedades (valores)
+            this.Alto=Alto;
+            this.Ancho=Ancho;
+            this.Abierta=false;
+            //Definicion de metodos (funciones)
+            this.Superficie=fnMostrarSuperficie;
+            this.Abrir=fnAbrir;
+            this.Cerrar=fnCerrar;
+            this.Estado=fnMostrarEstado;
+        }
+        //Desarrollar cada funcion
+        function fnMostrarSuperficie(){
+            document.write(this.Alto*this.Ancho+ "cms cuadrados"+"<br>");       
+        }
+        function fnAbrir(){
+            this.Abierta=true;
+        }
+        function fnCerrar(){
+            this.Abierta=false;
+        }
+        function fnMostrarEstado(){
+            if(this.Abierta==true)
+                document.write("Abierta"+"<br>");
+            else document.write("Cerrada"+"<br>");
+        }
+    </script>
+</head>
+
+<body>
+    <script>
+        var ancho = parseInt(prompt("selecciona ancho",0));
+        var alto = parseInt(prompt("sellecciona alto", 0));
+        var objVentanal = new Ventana(ancho,alto);
+        objVentanal.Abrir ();
+        objVentanal.Superficie ();
+        objVentanal.Estado ();
+        for (var propiedad in objVentanal){
+            document.write(propiedad+" = "+ objVentanal[Alto]+ "<br>")
+        }
+    </script>
+</body>
+
+</html>

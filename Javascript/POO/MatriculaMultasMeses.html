@@ -1,0 +1,104 @@
+<!--ejercicio DWEC:
+	igual que el ejercicio de matriculas y multas
+Hacer ejercicio donde meta matricula y multas...
+suponemos que se puede repetir el numero de matricula (acumuluarlas)
+Tambien introducir año entre 2011-2017 y meses 1-12
+
+Al final ordenado ascende las matriculas por el numero de multas.
+el numero de multas que visualice el total de multas y matriculas almacenad
+por cada mes y por cada año
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function parte(txtMatricula, numImporte) {
+            //ATRIBUTOS
+            this.matricula = txtMatricula;
+            this.importe = numImporte;
+            //METODOS
+            this.sumar = fnSumar;
+            this.mostrar = fnMostrar;
+        }
+        //FUNCIONES METODO
+        function fnSumar(nuevoImporte) {
+            with(this) {
+                importe = importe + nuevoImporte;
+            }
+        }
+
+        function fnMostrar() {
+            document.write(this.matricula, " : ", this.importe, " €<br>");
+        }
+
+    </script>
+</head>
+
+<body>
+    <script>
+        debugger;
+        var almacen = new Array(7);
+        for (var fila = 0; fila < 7; fila++) {
+            almacen[fila] = new Array(12);
+            for (var columna = 0; columna < 12; columna++) {
+                almacen[fila][columna] = new Array();
+            }
+        }
+        debugger;
+        var auxiliar;
+        var comprobar = true;
+        var i = 0;
+        do {
+            anio = (parseInt(prompt("Año: ", 0)) - 2011);
+            while (anio < 0 || anio > 6) {
+                alert("Año incorrecto");
+                anio = (parseInt(prompt("Año: ", 0)) - 2011);
+            }
+            mes = parseInt(prompt("Mes: ", 0));
+            while (mes < 1 || mes > 12) {
+                alert("Mes incorrecto");
+                mes = parseInt(prompt("Mes: ", 0));
+            }
+            matri = prompt("Matricula: ", 0);
+            mult = parseInt(prompt("Importe de la multa: ", 0));
+            auxiliar = new parte(matri, mult);
+            debugger;
+            //COMPROBACION MATRICULAS REPETIDAS ENTRANDO EN FILAS(años) y COLUMNAS (meses) CONCRETAS
+            for (var ind = 0; ind < 7; ind++) {
+                for (var ind2 = 0; ind2 < 12; ind2++) {
+                    for(var obj=0;obj<almacen[ind][ind2].length;obj++){                   
+                        if (auxiliar.matricula == almacen[ind][ind2][obj].matricula) {
+                            almacen[ind][ind2][obj].importe += auxiliar.importe;
+                            comprobar = false;
+                            break;
+                        }
+                    }
+                }
+            }
+            debugger;
+            //SI NO ENTRA EN EL IF ANTERIOR ENTONCES ENTRA EN ESTE
+            i = almacen[anio][mes-1].length;
+            if (comprobar) {
+                almacen[anio][mes-1][i] = auxiliar;
+            }
+            comprobar = true;
+            aux1 = confirm("¿Introducir mas multas?");
+        }
+        while (aux1);
+        //VISUALIZACION
+        for (var fila=0;fila<7;fila++) {
+            for(var col=0;col<12;col++){
+                for(var obj=0;obj<almacen[fila][col].length;obj++){
+                    document.write("Año: ",(fila+2011)," - Mes: ",(col+1)," - Matricula: ",almacen[fila][col][obj].matricula," - Importe: ",almacen[fila][col][obj].importe,"<br>");
+                }
+            }  
+        }
+
+    </script>
+</body>
+
+</html>

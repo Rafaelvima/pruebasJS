@@ -1,0 +1,97 @@
+<html>
+<head>
+<script>
+    function insertar() {
+    var filas = parseInt(prompt("cuantas filas"),0);
+    var columnas = parseInt(prompt("cuantas columnas"),0);
+    var table = document.getElementById("tabla");
+        for(var i=0;i<filas;i++){
+              var row = table.insertRow(i);
+            for(var j=0;j<columnas;j++){
+                var cell = row.insertCell(j);
+              var contenido= prompt("que quieres poner en la fila "+i+1+" columna"+j+1);
+                cell.innerHTML = contenido;
+            }
+        }
+}
+    function insertarFila() {
+    var filas = parseInt(prompt("que posicion quieres poner la fila"),0);
+    var table = document.getElementById("tabla");
+        
+              var row = table.insertRow(filas-1);
+            
+        
+}
+    function borrarFila() {
+    var filas = parseInt(prompt("que posicion quieres borrar la fila"),0);
+    var table = document.getElementById("tabla");
+              var row = table.deleteRow(filas-1);
+            
+        
+}
+    function insertarcelda() {
+    var filas = parseInt(prompt("en que fila quieres ponerla"),0);
+    var columnas = parseInt(prompt("dentro de la fila"+ filas+"en que columna lo quieres"),0);
+    var table = document.getElementById("tabla");
+        var posicion = document.getElementsByTagName("tr")[filas-1];
+        
+                var cell = posicion.insertCell(columnas-1);
+              var contenido= prompt("que quieres poner en la celda");
+                cell.innerHTML = contenido;
+       
+}
+    function insertarColumna() {
+    var columnas = 0;
+    var table = document.getElementById("tabla");
+        for(var l=0;table.rows.length;l++){
+        var posicion = document.getElementsByTagName("tr")[l];
+             var cell = posicion.insertCell(columnas);
+             var contenido= prompt("que quieres poner en la celda de la fila"+l);
+                cell.innerHTML = contenido;
+        }
+               
+             
+       
+}
+    function borrarcelda() {
+    var filas = parseInt(prompt("en que fila quieres borrar"),0);
+    var columnas = parseInt(prompt("dentro de la fila"+ filas+"en que columna esta?"),0);
+    var table = document.getElementById("tabla");
+        var posicion = document.getElementsByTagName("tr")[filas-1];
+        
+                var cell = posicion.deleteCell(columnas-1);
+              
+       
+}
+    function consultarcelda() {
+    var table = document.getElementById("tabla");
+    var filas = parseInt(prompt("en que fila esta"),0);
+    var columnas = parseInt(prompt("dentro de la fila"+ filas+"en que columna esta"),0); 
+        alert(table.rows[filas-1].cells[columnas-1].innerHTML);       
+}
+    function modificarcelda() {
+    var table = document.getElementById("tabla");
+    var filas = parseInt(prompt("en que fila esta"),0);
+    var columnas = parseInt(prompt("dentro de la fila"+ filas+"en que columna esta"),0); 
+    var contenido= prompt("que quieres poner dentro","");
+        table.rows[filas-1].cells[columnas-1].innerHTML=contenido;       
+}
+    
+function funcion() {
+alert("espera");
+}
+</script>
+</head>
+<body onload="funcion()">
+<table border=solid id=tabla>
+ </table>
+<button onclick="insertar()">crear tabla personalizada</button>
+<button onclick="insertarFila()">insert fila</button>
+<button onclick="insertarcelda()">insert celda</button>
+<button onclick="borrarcelda()">insert celda</button>
+<button onclick="modificarcelda()">modificar celda</button>
+<button onclick="consultarcelda()">consultar celda</button>
+<button onclick="borrarFila()">borrar fila</button>
+<button onclick="insertarColumna()">insertar columna</button>
+</body>
+</html>

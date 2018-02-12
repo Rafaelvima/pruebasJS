@@ -1,0 +1,28 @@
+<html>
+<head>
+    </head>
+<body>
+
+<script>
+  function persona(nombre,apellido, edad, cosa){
+      this.nombre=nombre;
+      this.apellido=apellido;
+      this.edad=edad;
+      this.cosa=cosa;
+      this.mover=fnmover;
+  }
+    function fnmover(u){
+        u.edad=u.edad+100;
+            document.write(peoper.edad);
+
+    }
+    var peoper = new persona("hola", "feo", 2, "nah");
+    document.write(peoper);
+    for(var propiedad in objetoa){
+        document.write(propiedad);
+    }
+    peoper.mover(peoper);
+</script>
+    <p onclick=fnmover(peoper)>hola guapo</p>
+    </body>
+</html>

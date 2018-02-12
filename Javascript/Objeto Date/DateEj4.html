@@ -1,0 +1,29 @@
+<html>
+<!--cronometro titulo-->
+
+<head>
+    <title></title>
+    <script>
+        var dia_semana = new Array("Dominog", "Lunes", "Martes", "Miercoles", "Jueves", "viernes", "Sabado");
+        var meses = new Array("Enero", "Febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre");
+        var fecha_inicial = new Date();
+        mostrar_segundos();
+        function mostrar_segundos(){
+            var fecdha_actual = new Date();
+            var segundos = (fecdha_actual.getTime() - fecha_inicial.getTime())/1000;
+            document.title(segundos);
+            setTimeout(mostar_segundos(),1000);
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <script>
+        
+    </script>
+
+</body>
+
+</html>

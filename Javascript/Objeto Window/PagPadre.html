@@ -1,0 +1,98 @@
+<html>
+<!--poner fecha de mañana utilizabdp miliseg-->
+
+<head>
+    <title>padre</title>
+    <script>
+
+
+    </script>
+</head>
+
+<body>
+    <button onclick="abrir1()">Hija1</button>
+    <button onclick="redim2()">redim2</button>
+    <button onclick="movi1()">movi1</button>
+    <button onclick="movi2()">movi2</button>
+    <button onclick="cerrar1()">Hija1Cerrar</button>
+    <button onclick="redim1()">Hredi</button>
+    <button onclick="abrir2()">Hija2</button>
+    <button onclick="cerrar2()">Hija2Cerrar</button>
+    <button onclick="focu1()">focu1</button>
+    <button onclick="focu()">focuami</button>
+    <button onclick="focu2()">focu2</button>
+    <p>pag padre</p>
+    <script>
+        var c2;
+        var c1;
+        var vent;
+
+        function abrir1() {
+            //c=open("PagHija.html", ""); -nueva ventana
+            //c=open("PagHija.html"); -nueva pestaña
+            //c=open("PagHija.html", "_self"); -misma pestaña
+            //c=open("PagHija.html", "_blank"); -nueva ventana
+            c1 = window.open("PagHija.html", "", "width=480,height=400");
+            c1.moveTo(400,300);
+            c1.resizeTo(100,100);
+
+
+        }
+
+        function abrir2() {
+            //c=open("PagHija.html", ""); -nueva ventana
+            //c=open("PagHija.html"); -nueva pestaña
+            //c=open("PagHija.html", "_self"); -misma pestaña
+            //c=open("PagHija.html", "_blank"); -nueva ventana
+            c2 = open("PagHija.html", "", "width=480,height=400");
+
+        }
+
+        function cerrar1() {
+            c1.close();
+        }
+
+        function cerrar2() {
+            c2.close();
+        }
+
+        function focu1() {
+            c1.focus();
+        }
+
+        function focu2() {
+            c2.focus();
+        }
+
+        function focu() {
+            window.focus();
+            vent = setTimeout("cerrar2()", 2000);
+        }
+
+        function redim1() {
+
+            c1.resizeTo(1000, 1000);
+            c1.focus();
+
+        }
+
+        function redim2() {
+            c1.resizeBy(100, 100);
+        }
+
+        function movi1() {
+            c1.moveTo(0,0);
+        }
+
+        function movi2() {
+            c1.moveBy(100, 100);
+        }
+        function vueltas(){
+            
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<html>
+<!--poner fecha de mañana utilizabdp miliseg-->
+
+<head>
+    <title></title>
+    <script>
+
+
+    </script>
+</head>
+
+<body>
+    <label for='nombre'>Nombre: </label>
+        <input type='text' id='nombre' />
+        <br /><br />
+        <label for='valor'>Valor.....: </label>
+        <input type='text' id='valor' />
+        <br /><br /><br />
+        <button id='asignar'>Añadir</button>
+        <button id='borrar'>Borrar variable</button>
+        <button id='consultar'>Consultar</button>
+        <button id='modificar'>Modificar</button>
+        <br /><br />
+        <button id='listado'>Listado</button>
+        <button id='borrar_listado'>Borrar listado</button>
+        <button id='borrar_almacen'>Borrar almacén</button>
+        <br />
+        <p id='parrafo'></p>
+    <button onclick="leercookie()" >leer cookie </button>
+    <button onclick="asignar()" >crear cookie </button>
+    <button onclick="buscarcookie()" >buscar cookie </button>
+    <button onclick="borrarcookie()" >borrar cookie </button>
+    <script>
+        
+        function asignar () {
+        var nombre=document.getElementById("nombre").value;
+        var valor=document.getElementById("valor").value;
+        if (nombre === "" || valor === "") {
+            alert('Debe introducir algo en nombre y en valor');
+        } else {
+            window.localStorage.setItem(nombre,valor);
+        }
+    }
+        function f_consultar () {
+        document.getElementById("valor").value = window.localStorage.getItem(document.getElementById("nombre").value);
+    }
+
+        function leercookie(nombre) {
+            debugger;
+            //document.write("hla");
+            if (document.cookie.length == 0) {
+               document.write("vacio");
+            }
+            var sep1 = new RegExp("; ", "g");
+            var sep2 = new RegExp("=", "g");
+            var listacookie = document.cookie.split(sep1);
+            for (var i = 0; i < listacookie.length; i++) {
+                var cookie = listacookie[i].split(sep2);
+               document.write(cookie[0]+" = " +cookie[1]+"<br>");
+            }
+            return null;
+        }
+        function buscarcookie(){
+            debugger;
+            var buscar = prompt("nombre a buscar", "");
+             if (document.cookie.length == 0) {
+                return null;
+            }
+            var sep1 = new RegExp("; ", "g");
+            var sep2 = new RegExp("=", "g");
+            var listacookie = document.cookie.split(sep1);
+            for (var i = 0; i < listacookie.length; i++) {
+                var cookie = listacookie[i].split(sep2);
+                if (cookie[0] == buscar) {
+                    return alert("valor encontrado"+cookie[1]);
+                }
+            }
+            return null;
+        }
+        function borrarcookie(){
+            debugger;
+            var borrar = prompt("nombre a borrar", "");
+             if (document.cookie.length == 0) {
+                return null;
+            }
+            var sep1 = new RegExp("; ", "g");
+            var sep2 = new RegExp("=", "g");
+            var listacookie = document.cookie.split(sep1);
+            for (var i = 0; i < listacookie.length; i++) {
+                var cookie = listacookie[i].split(sep2);
+                if (cookie[0] == borrar) {
+                    var pasado = new Date();
+                    pasado.setTime(pasado.getTime()-10);
+                    asignarcookie(cookie[0],cookie[1],pasado);
+                }
+            }
+            return null;
+        }
+        function borrarTodas(){
+            localStorage.clear;
+        }
+        
+        
+    </script>
+
+</body>
+</html>

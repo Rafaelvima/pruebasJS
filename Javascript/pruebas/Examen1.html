@@ -1,0 +1,42 @@
+<html>
+<head>
+    </head>
+<body>
+
+<script>
+    var numero = 99;
+var cadena= new Array();
+    for(i=0;i<15;i++){
+        cadena[i]=10+i;
+    }
+    for(var valor in cadena){
+        document.write("variabel "+valor +" en "+cadena[valor]+"<br>");
+    }
+    document.write("fin 1");
+var matriz = new Array();
+    for(t=0;t<5;t++){
+        matriz[t]=new Array();
+    }
+    
+        document.write("fin 2");
+        document.write(matriz.length);
+debugger;
+    for(i=0;i<matriz.length;i++){
+        for(j=0;j<5;j++){
+            matriz[i][j]=numero;
+            numero=numero-1;
+        }
+    }
+            document.write(matriz.length);
+
+    document.write("fin 3");
+    for(i=0;i<matriz.length-1;i++){
+        for(j=0;j<matriz[i].length-1;j++){
+            document.write("posicion "+i + j+ " = " + matriz[i][j] +"<br>");
+        }
+    }
+        document.write("fin 4");
+
+</script>
+    </body>
+</html>

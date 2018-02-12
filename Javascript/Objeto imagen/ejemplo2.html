@@ -1,0 +1,50 @@
+<html>
+<!--poner fecha de mañana utilizabdp miliseg-->
+
+<head>
+    <title>hla</title>
+    <script>
+        var imagenes = new Array(["descarga.jpg"], ["descarga2.jpg"], ["descarga3.jpg"], ["descarga.jpg"], ["descarga2.jpg"], ["descarga3.jpg"]);
+        var i = 0;
+ var incremento = 1;
+        function cambiar() {
+
+            document.images[0].src = imagenes[i];
+            i++
+            if (i == 5) {
+                i = 0;
+
+            }
+
+           
+}
+            function dimension() {
+
+                document.images[0].width += incremento;
+                document.images[0].height += incremento;
+                if (document.images[0].width == 800) {
+                    incremento = -1;
+
+                }
+                
+                if (document.images[0].height == 0) {
+                    incremento = +1;
+
+                }
+            }
+        
+
+    </script>
+</head>
+
+<body onload="cambiar()">
+    <img>
+
+    <script>
+        setInterval("cambiar()", 3000);
+        setInterval("dimension()", 10);
+
+    </script>
+</body>
+
+</html>

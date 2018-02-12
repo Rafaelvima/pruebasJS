@@ -1,0 +1,27 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <button onclick="atras()"> atras</button>
+    <script>
+        for (variable in window.history) {
+            document.write(variable + " --> " + window.history[variable] + "<br>");
+        }
+        var anc = 990;
+        var alt = 500;
+        var opc = "width=" + anc + ",height=" + alt;
+          var ventana = open("","",opc);
+        ventana.moveTo(1500,500);
+        window.location.replace("http://www.google.es");
+        document.write(history.length);
+
+        function atras() {
+            history.back();
+        }
+//pide nombre de valuiabre y valor de forma repetiad hasta que no queramos uintroducir mas datos y debera formarse una cadena de kla forma, del formato v1=vallor;v2=valoor2; que se introcuriea en la variable cadena y se monstrara con un document write.
+    </script>
+</body>
+
+</html>

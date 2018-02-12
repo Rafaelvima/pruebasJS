@@ -1,0 +1,38 @@
+<html>
+<!--poner fecha de mañana utilizabdp miliseg-->
+
+<head>
+    <title>la gana</title>
+    <script>
+
+
+    </script>
+</head>
+
+<body>
+
+    <script>
+        function eventoClick(ev) {
+
+            var texto = "evento onclick en el navegador" + navigator.appName + "\n\n";
+            if (window.event) {
+                texto += i + "usa objeto event\n";
+                for (i in event) {
+                    texto += i + " = " + event[i] + "\n";
+                }
+            } else {
+                texto += "usa objeto ev apsafo por parametrp\n"
+                for (i in ev) {
+                    texto += i + " = " + ev[i] + "\n";
+                }
+            }
+            alert(texto);
+
+        }
+        document.onclick = eventoClick;
+
+    </script>
+
+</body>
+
+</html>

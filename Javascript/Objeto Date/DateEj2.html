@@ -1,0 +1,33 @@
+<html>
+<!--poner fecha de mañana utilizabdp miliseg-->
+
+<head>
+    <title>lo que me de la gana</title>
+    <script>
+        var dia_semana = new Array("Dominog", "Lunes", "Martes", "Miercoles", "Jueves", "viernes", "Sabado");
+        var meses = new Array("Enero", "Febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre");
+
+    </script>
+</head>
+
+<body>
+
+    <script>
+        alert("introduce fecha1 (esta sera la fecha menor)");
+        var ano = prompt("ano", 0);
+        var mes = prompt("mes", 0);
+        var dia = prompt("dia", 0);
+        var Fecha1 = new Date(ano, mes - 1, dia);
+        alert("introduce fecha2 (esta sera la fecha mayor)");
+        var ano = prompt("ano", 0);
+        var mes = prompt("mes", 0);
+        var dia = prompt("dia", 0);
+        var Fecha2 = new Date(ano, mes - 1, dia);
+        document.write((Fecha2.getTime() - Fecha1.getTime()) / 1000);
+      
+
+    </script>
+
+</body>
+
+</html>

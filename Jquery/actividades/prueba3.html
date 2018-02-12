@@ -1,0 +1,31 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../jquery-3.2.1.js" type="text/javascript">   </script>
+    <script>
+        
+        //$("#id").prop("checked");
+        //$("#id").is("checked");
+        
+$(document).ready(function(){
+   $("#mayoria_edad").click(function(evento){
+// La siguiente instrucción no he conseguido que funcione
+//      if ($("#mayoria_edad").attr("checked")){
+	if ($("#mayoria_edad").prop("checked")) {
+	    $("#formulariomayores").css("display", "block");
+	}else{
+	    $("#formulariomayores").css("display", "none");
+	}
+   });
+});
+      </script>
+    </head>
+    <body>
+      <form name="miformulario">Nombre: <input name="nombre" type="text"> <br>
+        <input name="mayor_edad" value="1" id="mayoria_edad" checked="checked" type="checkbox"> Soy mayor de edad <br>
+        <div id="formulariomayores" style="display: block;">Dato para
+mayores de edad: <input name="mayores_edad" type="text"> </div>
+      </form>
+</body>
+</html>
+

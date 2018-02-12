@@ -1,0 +1,283 @@
+<!--
+    Un par de datos con texto (DNI,nombre)
+    boton enviar
+
+    chekee validacion y si no lo supera muestre un error
+
+    al pulsar se guardan los datos en cookies
+
+    los valores iniciales del dni y del nombre deben ser los guardados en las cookies
+    o los siguientes nnnnnnnnX - Introduce un nombre
+
+    La validacion a realizar sera que el DNI este compuesto de 8 numeros y 1 letra mayuscula
+    y que el nombre contenga algo distinto de espacios y de "Introduce un nombre"
+
+    sexo, edad, aficiones
+    sexo:caja edad caja
+    aficiones checkbox,
+        en caso de elegir deportes q salga otra lista de checkbox
+                    elegir cine q salgan....
+                etc etc
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>0</title>
+    <!--<link rel="stylesheet" type="text/css" href="css/estilo.css" />-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<script type="text/javascript" src="js/fichero.js"></script>-->
+    <script type="text/javascript">
+        function comprobacionInicial() {
+            if (document.cookie.length == 0) {
+                document.forms[0].elements["dni"].value = "nnnnnnnnX";
+                document.forms[0].elements["nombre"].value = "Introduce un nombre";
+            } else {
+                var separador = new RegExp("; ", "g");
+                var separador2 = new RegExp("=", "g");
+                var listaCookies = document.cookie.split(separador);
+                for (var i = 0; i < listaCookies.length; i++) {
+                    var cookie = listaCookies[i].split(separador2);
+                    if (cookie[0] == "dni") {
+                        document.forms[0].elements["dni"].value = cookie[1];
+                    } else if (cookie[0] == "nombre") {
+                        document.forms[0].elements["nombre"].value = cookie[1];
+                    } else if (cookie[0] == "sexo") {
+                        document.forms[0].elements["sexo"].value = cookie[1];
+                    } else if (cookie[0] == "edad") {
+                        document.forms[0].elements["edad"].value = cookie[1];
+                    } else if (cookie[0] == "afi") {
+                        for (var j = 0; j < document.formu1.afi.length; j++) {
+                            if (cookie[1].charAt(j) == "s") {
+                                document.formu1.afi[j].checked = "checked";
+                            }
+                        }
+                    } else if (cookie[0] == "vehiculo") {
+                        for (var k = 0; k < document.formu1.vehiculo.length; k++) {
+                            if (cookie[1].charAt(k) == "s") {
+                                document.formu1.vehiculo[k].selected = "selected";
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+
+        function guardarCookie() {
+            var valor1 = document.forms[0].elements["dni"].value;
+            var valor2 = document.forms[0].elements["nombre"].value;
+            var valor3 = document.forms[0].elements["sexo"].value;
+            var valor4 = document.forms[0].elements["edad"].value;
+            var caducidad1 = new Date();
+            caducidad1.setTime(caducidad1.getTime() + (30000 * 1000));
+            asignarCookie("dni", valor1, caducidad1);
+            asignarCookie("nombre", valor2, caducidad1);
+            asignarCookie("sexo", valor3, caducidad1);
+            asignarCookie("edad", valor4, caducidad1);
+            var valor5 = "";
+            for (var i = 0; i < document.formu1.afi.length; i++) {
+                if (document.formu1.afi[i].checked) {
+                    valor5 += "s";
+                } else {
+                    valor5 += "n";
+                }
+            }
+            asignarCookie("afi", valor5, caducidad1);
+            var valor6 = "";
+            for (var i = 0; i < document.formu1.vehiculo.length; i++) {
+                if (document.formu1.vehiculo[i].selected) {
+                    valor6 += "s";
+                } else {
+                    valor6 += "n";
+                }
+            }
+            asignarCookie("vehiculo", valor6, caducidad1);
+        }
+
+        function asignarCookie(nombre, valor, caducidad) {
+            document.cookie = nombre + "=" + valor + ((caducidad == undefined) ? "3000" : ("; expires=" + caducidad.toGMTString()));
+        }
+
+        function validacion() {
+            var ret = true;
+            var valor1 = document.forms[0].elements["dni"].value;
+            var valor2 = document.forms[0].elements["nombre"].value;
+
+            if (!(/^\d{8}[A-Z]$/.test(valor1))) {
+                alert("DNi mal puesto");
+                ret = false;
+            }
+
+            if (valor2 == null || valor2.length == 0 || valor2 == " ") {
+                alert("Nombre mal puesto");
+                ret = false;
+            }
+
+            var aux = false;
+            for (var i = 0; i < formu1.sexo.length; i++) {
+                if (formu1.sexo[i].checked) {
+                    aux = true;
+                }
+            }
+            if (!aux) {
+                alert("Elige un sexo");
+                ret = false;
+            }
+
+            var aux2 = false;
+            for (var i = 0; i < formu1.edad.length; i++) {
+                if (formu1.edad[i].checked) {
+                    aux2 = true;
+                }
+            }
+            if (!aux2) {
+                alert("Elige una edad");
+                ret = false;
+            }
+
+            var aux3 = 0;
+            for (var i = 0; i < formu1.afi.length; i++) {
+                if (formu1.afi[i].checked) {
+                    aux3 += 1;
+                }
+            }
+            if (aux3 == 0 || aux3 == 3) {
+                alert("Elige 1 o 2 aficiones");
+                ret = false;
+            }
+
+            var aux4 = 0;
+            for (var i = 0; i < formu1.vehiculo.length; i++) {
+                if (formu1.vehiculo[i].selected) {
+                    aux4 += 1;
+                }
+            }
+            if (aux4 == 0) {
+                alert("Elige al menos 1 vehiculo");
+                ret = false;
+            }
+
+            return ret;
+        }
+
+        function BienOMal() {
+            if ((validacion())) {
+                guardarCookie();
+                document.open();
+                document.write("<h1>Enviado</h1>");
+                document.close();
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function opciones(lista) {
+            lista.form.miLista.style.visibility = "hidden";
+            //  Para España requiere el número de teléfono 
+            if (lista.options[lista.selectedIndex].value == 1) {
+                lista.form.miLista.style.visibility = "visible";
+                lista.form.miLista.select();
+            }
+        }
+
+        function opcionTelefono(lista) {
+            lista.form.telefono.style.visibility = "hidden";
+            //  Para España requiere el número de teléfono 
+            if (lista.options[lista.selectedIndex].value == 1) {
+                lista.form.telefono.style.visibility = "visible";
+                lista.form.telefono.select();
+            }
+        }
+
+    </script>
+
+</head>
+
+<body onload=comprobacionInicial()>
+
+    <form name="formu1" method="post" action="form3.html" onsubmit="return BienOMal()">
+
+        <h2>Datos personales</h2>
+        <hr>
+        <table>
+            <tr>
+                <td>DNI: </td>
+                <td><input type="text" name="dni" value=""></td>
+            </tr>
+            <tr>
+                <td>NOMBRE: </td>
+                <td><input type="text" name="nombre" value=""></td>
+            </tr>
+            <tr>
+                <td>SEXO: </td>
+                <td><input type="radio" name="sexo" value="1" id="hombre"><label for="hombre">Hombre</label></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="radio" name="sexo" value="2" id="mujer"><label for="mujer">Mujer</label></td>
+            </tr>
+            <tr>
+                <td>EDAD: </td>
+                <td><input type="radio" name="edad" value="1" id="men21"><label for="men21">Menor de 21</label></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="radio" name="edad" value="2" id="men41"><label for="men41">De 21 a 40</label></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="radio" name="edad" value="3" id="men61"><label for="men61">De 41 a 60</label></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="radio" name="edad" value="4" id="mas60"><label for="mas60">Mayor de 60</label></td>
+            </tr>
+            <tr>
+                <td>AFICIONES: </td>
+                <td><input type="checkbox" name="afi" id="deportes" onmousemove="despliegue1()"><label for="deportes">Deportes</label></td>
+                <td>
+                    <select name="miLista" size="5" style="visibility:hidden" onChange="opciones(this)"> 
+                    <option value="0" name="andorra">Andorra</option> 
+                    <option value="1" name="españa">España</option> 
+                    <option value="2" name="francia">Francia</option> 
+                    <option value="3" name="italia">Italia</option> 
+                    <option value="4" name="portugal">Portugal</option> 
+                  </select>
+                </td>
+            </tr>
+            <tr>
+                <td>jijj</td>
+                <td><input type="checkbox" name="afi" id="cine"><label for="cine">Cine</label></td>
+                                <td>jiaaajj</td>
+
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="checkbox" name="afi" id="lectura"><label for="lectura">Lectura</label></td>
+            </tr>
+            <tr>
+                <td>VEHICULO: </td>
+                <td>
+                    <select multiple id="vehiculo" name="vehiculo">
+                        <option value="1">Coche</option>
+                        <option value="2">Moto</option>
+                        <option value="3">Barco</option>
+                        <option value="4">Bicicleta</option>
+                        <option value="5">Avion</option>
+                    </select>
+                    <input type="text" name="telefono" value="informar teléfono aquí" style="visibility:hidden">
+                </td>
+            </tr>
+        </table>
+        <br>
+        <input type="submit" name="boton" value="Enviar">
+
+    </form>
+
+</body>
+// baloncesto ciclismo padel tenis //aventura romantico terrir //novelas ciencia poesia
+
+</html>

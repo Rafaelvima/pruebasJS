@@ -1,0 +1,32 @@
+<html>
+<!--Es lunes, 17 de Dicembre de 2019;-->
+
+<head>
+    <title>lo que me de la gana</title>
+    <script>
+        var dia_semana = new Array("Dominog", "Lunes", "Martes", "Miercoles", "Jueves", "viernes", "Sabado");
+        var meses = new Array("Enero","Febrero", "marzo" , "abril" , "mayo" , "junio" , "julio" , "agosto" , "septiembre" , "octubre" , "noviembre" , "diciembre");
+       
+    </script>
+</head>
+
+<body>
+
+    <script>
+        
+        var dtFecha = new Date();
+        document.write(dtFecha);
+        with(dtFecha) {
+            document.write(getDate() + "dia" + getDay() + " mes" + getMonth() + "ano" + getFullYear() + "<br>");
+        }
+        var ano = prompt("ano", 0);
+        var mes = prompt("mes", 0);
+        var dia = prompt("dia", 0);
+        var cumple = new Date(ano, mes - 1, dia);
+        document.write("hoy es " + dia_semana[cumple.getDay()] + dia + " de " + meses[cumple.getMonth()] + " de " + ano);
+
+    </script>
+
+</body>
+
+</html>

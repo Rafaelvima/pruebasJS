@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <script>
+        function objeto(matricula, intmulta, mes) {
+            this.matricula = matricula;
+            this.multa = intmulta;
+            this.mes = mes;
+        }
+        debugger;
+        var arrays = new Array(7);
+        for (var j = 0; j < 7; j++) {
+            arrays[j] = new Array();
+        }
+        var cont = 0;
+        var existe = true;
+
+    </script>
+</head>
+
+<body>
+    <script>
+        do {
+            var Nmatricula = prompt("introduce matricula", "");
+            var Pmulta = parseInt(prompt("introduce multa", 0));
+            var Año = parseInt(prompt("introduce el ultimos digitos del año (entre 2000 y 2009)", 0));
+            var Mes = parseInt(prompt("introduce mes", 0));
+            var objeto1 = new objeto(Nmatricula, Pmulta, Mes);
+            debugger;
+            if (cont == 0) {
+                arrays[Año][cont] = objeto1;
+            } 
+            cont++;
+            existe = confirm("quiers añadir otro");
+        }
+        while (existe);
+
+    </script>
+</body>
+
+</html>
+<!-- metodo santi:
+    var datos= new Array()
+        for(fila=0; fila<7;fila++){
+            datos [fila] = new Array();
+              for(var columna=0;columna <12; columna++){
+                datos[fila][columna] = new Array();
+              }
+        }

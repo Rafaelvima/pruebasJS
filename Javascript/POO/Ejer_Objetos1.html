@@ -1,0 +1,76 @@
+<!--Objeto: modulo 
+  Propiedades: nombre, calificacion
+  Metodos: aprobado() mostrar true si calificacion =>5
+  Objeto2: alumno
+  Propiedades: nombre, edad, modulo1, modulo2
+  metodo aprobado si ambos modulos estan aprobados= true
+que solicite por pantalla los datos del primer modulo, los datos del segundo modulo, el nobbr y la edad del alumno, se creen los objetos correspondientes y muestre con alert la palabra aprobado o suspendos segun corresponda.-->
+<html>
+
+<head>
+    <script>
+        //definir objeto
+        function modulo(nombreM, calificacion) {
+            //definir las propiedades
+            this.nombreM = nombreM;
+            this.calificacion = calificacion;
+            //definir metodos
+            this.aprobadoM = fnAprobadoM;
+        }
+        //desarrollr cada funcion
+        function fnAprobadoM() {
+            with(this) {
+                if (calificacion >= 5) {
+                    document.write("si");
+                    return true;
+                } else {
+                    return false;
+                    document.write("no");
+                }
+            }
+        }
+
+        function alumno(nombreA, edad, modulo1, modulo2) {
+            this.nombreA = nombreA;
+            this.edad = edad;
+            this.modulo1 = modulo1;
+            this.modulo2 = modulo2;
+            this.aprobadoA = fnAprobadoA;
+        }
+
+
+        function fnAprobadoA() {
+            with(this) {
+                if (modulo1.aprobadoM() && modulo2.aprobadoM()) {
+                    document.write("si");
+                    return "Aprobado";
+                } else {
+                    document.write("no");
+                    return "SUspenso";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <script>
+        debugger;
+        var NombreA = prompt("nombre alumno", "");
+        var Edad = prompt("edad alumno", "");
+        var NombreM1 = prompt("nombre modulo1", "");
+        var NombreM2 = prompt("nombre modulo2", "");
+        var calificacion1 = parseInt(prompt("nota del primer modulo", 0));
+        var calificacion2 = parseInt(prompt("nota del segundo modulo", 0));
+        var objetoM1 = new modulo(NombreM1, calificacion1);
+        var objetoM2 = new modulo(NombreM2, calificacion2);
+        var objetoA1 = new alumno(NombreA, Edad, objetoM1, ObjetoM2);
+
+        alert(objetoA1.aprobadoA());
+        for(var propiedades in objetoA1){
+            document.write(propiedades, " = ", objetoA1[propiedades], "<br>")
+        }
+    </script>
+</body>
+
+</html>

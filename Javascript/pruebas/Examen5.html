@@ -1,0 +1,42 @@
+<html>
+<body>
+<script>
+var cadena = "hola gente fea ";
+   
+    var aux= "";
+    for(i=0;i<cadena.length;i++){
+        if(cadena.charAt(i)!=" "){
+            aux+=cadena.charAt(i);
+        }
+    }
+    document.write(aux);
+    
+     var timeae;
+    var sube=true;
+    var cont=1;
+    var numero=0;
+    function mover(){
+    if(numero ==20 && sube==true ){
+        cont=-1;
+        sube=false;
+    }
+    if(numero==0 && sube==false){
+       sube=true;
+        cont=1;
+       }
+        numero+=cont;
+        document.getElementById("hola").innerHTML=(numero + "<br>");
+    }
+    function empezar(){
+            timeae = setInterval(mover,1000);
+
+    }
+    function parar(){
+        clearInterval(timeae);
+    }
+    </script>    
+    <p id=hola></p>
+    <button onclick="empezar()">empezar </button>
+    <button onclick="parar()">parar </button>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <script>
+        function objeto(matricula, intmulta) {
+            this.matricula = matricula;
+            this.multa = intmulta;
+        }
+        var arrays = new Array();
+        var cont = 0;
+        var existe=true;
+
+    </script>
+</head>
+
+<body>
+    <script>
+        do {
+            var Nmatricula = prompt("introduce matricula", "");
+            var Pmulta = parseInt(prompt("introduce multa", 0));
+            var objeto1 = new objeto(Nmatricula, Pmulta);
+            debugger;
+            if (cont == 0) {
+                arrays[cont]=objeto1;
+            }
+            else{
+                for(var i=0;i<=cont;i++){
+                     if(i==cont){
+                        arrays[i]=objeto1;
+                    }
+                    if(arrays[i].matricula == Nmatricula && i != cont){
+                        arrays[i].multa += Pmulta;
+                        break;
+                    }
+                    
+                }
+            }
+            cont++;
+           existe = confirm("quiers añadir otro");
+        }
+        while(existe);
+        for(var objeto2 in arrays){
+            document.write("posicion ", objeto2, " matricula ", arrays[objeto2].matricula, " multa ", arrays[objeto2].multa,"<br>");
+        }
+
+    </script>
+</body>
+
+</html>
+<!-- creo el objeto,                     ---------------1--------------
+lo lleno en el array el 0
+siguiente cont 1
+entro y recorro el array hasta el comtador
+miro si la matricula de i es la misma que la del contador

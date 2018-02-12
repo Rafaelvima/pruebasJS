@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <script>
+        // MEJOR HACERLO CON THIS EJ: cambio1(this) y fn cambio(parrafo);
+       
+        function cambio1() {
+             document.getElementsByTagName("p")[0].innerHTML = "hola";
+            document.getElementById("uno").className = "verde";
+            document.getElementById("uno").style.fontSize = 30;
+            document.getElementById("uno").style.visibility = "hidden";
+
+        }
+
+        function normal() {
+            document.getElementsByTagName("p")[0].innerHTML = texto1;
+            document.getElementById("uno").className = "rojo";
+            document.getElementById("uno").style.fontSize = 15;
+            document.getElementById("uno").style.visibility = "visible";
+
+        }
+
+        function cambio2() {
+            document.getElementById("dos").innerHTML = "hola2";
+            document.getElementById("dos").className = "rojo";
+            document.getElementById("dos").style.fontSize = 30;
+        }
+
+        function normal2() {
+            document.getElementById("dos").innerHTML = texto2;
+            document.getElementById("dos").className = "verde";
+            document.getElementById("dos").style.fontSize = 15;
+        }
+        var x = "0";
+        var y = "0";
+
+        function myMoveFunction() {
+            document.getElementById("demo").innerHTML = "hola";
+        }
+
+    </script>
+    <style>
+        .rojo {
+            background-color: red;
+        }
+        
+        .verde {
+            background-color: lawngreen;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <p onmouseover="cambio1()" onmouseout="normal()" id="uno" class="rojo">Este es el parrafo 1</p>
+    <p onmouseover="cambio2()" onmouseout="normal2()" id="dos" class="verde">Este es el parrafo 2</p>
+
+</body>
+    <script>
+     var texto1=document.getElementById("uno").innerHTML;
+        var texto2=document.getElementById("dos").innerHTML;
+    </script>
+
+</html>

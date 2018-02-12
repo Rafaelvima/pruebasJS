@@ -1,0 +1,27 @@
+<html>
+<body>
+<script>
+    
+    var fecha1 = new Date();
+    var fecha2= new Date();
+    
+    fecha1.setFullYear(2018);
+    fecha1.setMonth(0);
+    fecha1.setDate(1);
+    
+     fecha2.setFullYear(2017);
+    fecha2.setMonth(0);
+    fecha2.setDate(1);
+    
+    var mili1= fecha1.getTime();
+    var mili2= fecha2.getTime();
+    //var alea = parseInt(Math.random()*((max-min)+1)+min);
+    var numero = Math.random()*((mili1-mili2)+1)+mili2;
+    
+    var fin= new Date();
+    fin.setTime(numero);
+    document.write(fin);
+</script>    
+</body>
+
+</html>
